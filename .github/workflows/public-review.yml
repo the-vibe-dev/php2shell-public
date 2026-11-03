@@ -1,0 +1,44 @@
+name: Public edition validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout public files only
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - name: Identify tested source
+        run: |
+          git rev-parse HEAD
+          python3 --version
+      - name: Compile public Python
+        run: python3 -m compileall -q pocs scripts tests
+      - name: Test models and negative publication controls
+        run: python3 -m unittest discover -s tests -v
+      - name: Check selected research arithmetic
+        run: python3 scripts/review_results.py
+      - name: Audit public files and print SHA-256 inventory
+        run: python3 scripts/validate_publication.py
+      - name: Run offline models
+        run: python3 pocs/offline_models.py
+      - name: Check local PHP diagnostic when available
+        shell: bash
+        run: |
+          set -euo pipefail
+          if command -v php >/dev/null 2>&1; then
+            php -l pocs/php_config_review.php
+            php pocs/php_config_review.php
+          else
+            echo "NOT RUN: PHP CLI is not available on this runner; Python checks remain separate."
+          fi

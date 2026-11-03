@@ -1,0 +1,8 @@
+name,version,interface,outcome,limitation
+WordPress,7.1.2,Apache,Tested stock REST native-session readback negative,Other core or custom-code paths are not ruled out
+Moodle,4.5.15; 5.1.8; 5.2.4; 5.3,FPM; Apache,Conditional handler-switch effects,Selected combinations and non-default conditions
+Drupal,11.4.11,Apache,Native progress observed; stock RCE unproven,Auxiliary route is not stock-route proof
+Symfony,8.1.10,FPM; Nginx,Custom-route conditional effect,Stock object-writing chain not established
+Laravel,12.70.2,FPM,Ordinary native-session reader negative,Bounded routes not universal immunity
+CakePHP,Template 5.4.0; core 5.4.2,FPM; Nginx,Selected-configuration conditional effect,Default preset negative
+FrankenPHP,1.13.1; PHP 8.4 pair,FrankenPHP,Oracle-assisted later effect,HTTP-only chain unproven; runtime not application

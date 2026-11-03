@@ -1,0 +1,27 @@
+{
+  "evidence_status": "derived_summary_of_retained_research_records",
+  "runtime_reproduced_for_public_edition": false,
+  "note": "Twenty additional source-index observations. Not added to cohort totals. Operational parameters and raw probe identifiers are omitted. Digests identify retained records, not these summaries.",
+  "records": [
+    {"id":"R01","study":"WordPress native-session boundary","outcome":"Native progress readback negative in tested route","original_sha256":"b327a36c0d164a56e0c21a8e5fb592c597382c8ed906a30ba401a4d0c42e791c"},
+    {"id":"R02","study":"FrankenPHP startup","outcome":"OOM thread restart; no full chain","original_sha256":"d9402c65adf86152ce66e1e64a70f3ec9d44422686a8470084fdd065b1380e88"},
+    {"id":"R03","study":"FrankenPHP post-startup consumer","outcome":"Cross-request readback; no full chain","original_sha256":"4b9cb5cec6a31bb14529b57481cc8b0a4985152937924b7f3d8e7517f9ab8ec3"},
+    {"id":"R04","study":"FrankenPHP persistent state","outcome":"Post-OOM stale state; no full chain","original_sha256":"f4b30ae46d33f06df85f7daf92cef32def864e4c1ff6b58a24c5cba09b9c414b"},
+    {"id":"R05","study":"FrankenPHP reference-state analysis","outcome":"Read primitive; no execution proof","original_sha256":"5c96a84e896ae69e16300e965b1946aa893bda1133774ef6d9cb59c1db64f46a"},
+    {"id":"R06","study":"FrankenPHP HTTP-only investigation A","outcome":"Bounded unsuccessful attempt","original_sha256":"b77093b85db6639f45790d913b6533aa4de1e6c0c1319bb31ab590e25cabffcb"},
+    {"id":"R07","study":"FrankenPHP HTTP-only investigation B","outcome":"Bounded unsuccessful attempt","original_sha256":"f38e3e93dbf3c325a89bd09de30cc629992919abddf849afe54d77d7c93ab09f"},
+    {"id":"R08","study":"Drupal pre-application boundary","outcome":"Native progress observed; no execution proof","original_sha256":"ba51a8d203b3c4de3aa30a3c17df6689d71cbd942c78489eca0057f741480070"},
+    {"id":"R09","study":"Drupal stock runtime route A","outcome":"Bounded unsuccessful chain","original_sha256":"d3dda4ad7becc0580b255be9b8ec915e97e710e61ec1afa1cc383fa101509b5b"},
+    {"id":"R10","study":"Drupal installer route A","outcome":"Bounded unsuccessful chain","original_sha256":"3ed714397b28283b02a31f8a90befbc60b677c09d90bac8af2cc708f267476f8"},
+    {"id":"R11","study":"Drupal stock runtime route B","outcome":"Bounded unsuccessful chain","original_sha256":"6fbf0623bb724a23240b5ada37350b4e4d381ef98c47452c60219743ef64ea64"},
+    {"id":"R12","study":"Drupal installer route B","outcome":"Bounded unsuccessful chain","original_sha256":"2ebab0ec0e416311fb70b6c9f9ad4165194ae82b506a1eefa62bba622ca6ff13"},
+    {"id":"R13","study":"Drupal auxiliary-route investigation","outcome":"Intermediate address observation; no execution proof","original_sha256":"cb34d0d3e1399b144c4581da4f360a00cdd982b17f33dff941ed622c17d94a52"},
+    {"id":"R14","study":"Drupal memory-state variant A","outcome":"State mismatch; no execution proof","original_sha256":"eb939678521ea31835abfb659b1bed4af60429ca1ca2794f1b030d56390ccde5"},
+    {"id":"R15","study":"Drupal memory-state variant B","outcome":"Bounded unsuccessful variants","original_sha256":"778fcd680249c84a7da2b8a2cf42e234bec7367973e149ca456949b457e2d786"},
+    {"id":"R16","study":"Drupal memory-state variant C","outcome":"Bounded unsuccessful attempt","original_sha256":"76eb1b76ad2176b4e779bb8df921bed8b7610004018b3edb68f98a32e458993b"},
+    {"id":"R17","study":"Drupal memory-state variant D","outcome":"Bounded unsuccessful variants","original_sha256":"fdfba8764c0f03c7fd5198235eebfb979a85fe2db082452856cc8d8fc75a085f"},
+    {"id":"R18","study":"Drupal memory-state variant E","outcome":"Bounded unsuccessful variants","original_sha256":"5becb95c5067bbf5b4dcadc0883564621ed8cfe8ce5b5d9302711aff2386130a"},
+    {"id":"R19","study":"Drupal producer-state variants","outcome":"Bounded unsuccessful variants","original_sha256":"a665aede1acca814334bc45c74c7cbb24f23df57f9a6399f1d2759e998444b5b"},
+    {"id":"R20","study":"PHP 8.5 no-OOM fatal-backtrace investigation","outcome":"Stale state and worker crash; no local standalone RCE","original_sha256":"f4e31c24b5eb86b353911c503559937b2573eeed084301b18fe7f90a7711f718"}
+  ]
+}

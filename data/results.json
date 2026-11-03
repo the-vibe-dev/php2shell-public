@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-02",
+  "evidence_status": "derived_summary_of_retained_research_records",
+  "runtime_reproduced_for_public_edition": false,
+  "counting_rule": "Sum only C01, C02 and C03. Not all campaign attempts, not an exploit success rate, and not distinct vulnerabilities. Earlier overlapping Moodle replays, FPM inclusion variants and worker-pool studies are not added.",
+  "counts": {"target_effects": 26, "negative_controls": 61},
+  "cohorts": [
+    {"id": "C01", "name": "OOM-only multiversion selector", "target_effects": 4, "negative_controls": 8, "basis": "Four vulnerable branch members, four fixed comparisons and four inert controls", "original_record": "OOM-only multiversion selector verification", "original_sha256": "0a4116d839edff7b4efcc9e3ee37416c568505ccb2cc1b2837e6510f5c318fd7"},
+    {"id": "C02", "name": "Unified installed-Moodle selector", "target_effects": 14, "negative_controls": 29, "basis": "Eleven configured runs; selected release/runtime combinations; earlier overlapping runs excluded", "original_record": "MOODLE_UNIFIED_SELECTOR_REVIEW_20261102.md", "original_sha256": "d56e13c765e795e193558f5df25a4167600177ab8bd3fa0cc1256029843c67ed"},
+    {"id": "C03", "name": "Apache session-file inclusion", "target_effects": 8, "negative_controls": 24, "basis": "Eight Apache PHP version cases with three matched controls each; separate application inclusion sink required", "original_record": "Apache session-file inclusion verification", "original_sha256": "01bb8f7b13be2d14951d321c244105d26cfc284b0b8133948524504c2f271665"}
+  ],
+  "mechanisms": [
+    {"id": "M01", "name": "OOM-only corruption", "related_cves": ["CVE-2026-109618"], "recorded_outcome": "Target-side effects on four vulnerable PHP branch members", "limitation": "ASLR disabled and image-specific calibration; portable ASLR-on isolated exploitation not established"},
+    {"id": "M02", "name": "Combined OOM and cross-request stale state", "related_cves": ["CVE-2026-109618", "CVE-2026-109619"], "recorded_outcome": "Combined-chain target effects and separate no-OOM stale-state/abort observations", "limitation": "No locally established standalone no-OOM 109619 RCE; same-worker condition is not a mitigation"},
+    {"id": "M03", "name": "Session serializer mismatch", "related_cves": ["CVE-2026-115560"], "recorded_outcome": "Conditional installed-application target effects", "limitation": "Non-default configuration and application prerequisites; no default Moodle or framework exposure claim"},
+    {"id": "M04", "name": "Application session-file inclusion", "related_cves": [], "recorded_outcome": "Eight target effects in selected Apache cohort", "limitation": "Independent application inclusion sink required; not a bypass of the two core fixes"},
+    {"id": "M05", "name": "Conditional mid-script decoding", "related_cves": [], "recorded_outcome": "Target effect in an assisted application fixture", "limitation": "Unmodified stock-application object-writing route and exact assignment not established"}
+  ],
+  "version_pairs": [
+    {"branch": "8.2", "vulnerable": "8.2.34", "core_fixed": "8.2.35"},
+    {"branch": "8.3", "vulnerable": "8.3.35", "core_fixed": "8.3.36"},
+    {"branch": "8.4", "vulnerable": "8.4.26", "core_fixed": "8.4.27"},
+    {"branch": "8.5", "vulnerable": "8.5.11", "core_fixed": "8.5.12"}
+  ],
+  "applications": [
+    {"name": "WordPress", "version": "7.1.2", "interface": "Apache", "outcome": "Tested stock REST native-session readback negative", "limitation": "Separate PHP-core experiments and plugins/custom routes are different claims", "original_sha256": "668b418c9c9e31bdd0398d340b7212779da21e29ac8ee78d57475546fd6c0cc0"},
+    {"name": "Moodle", "version": "4.5.15; 5.1.8; 5.2.4; 5.3", "interface": "FPM; Apache", "outcome": "Conditional handler-switch effects; default/progress-disabled controls negative", "limitation": "Selected combinations only; no default-installation exposure claim", "original_sha256": "d56e13c765e795e193558f5df25a4167600177ab8bd3fa0cc1256029843c67ed"},
+    {"name": "Drupal", "version": "11.4.11", "interface": "Apache", "outcome": "Native progress observed; stock front-controller RCE unproven", "limitation": "Auxiliary conditional routes are not stock-route proof", "original_sha256": "b725110a8ecb05cf8e6615513a3c623278ad64c229f905b0ee8b6316f26f5c69"},
+    {"name": "Symfony", "version": "8.1.10", "interface": "FPM; Nginx", "outcome": "Conditional handler-switch effect with a custom session-reading route", "limitation": "Stock object-writing/reading chain not established", "original_sha256": "9eb9ee8da500a60bb978477bba7c9a0c836e5ccc426c35d21fc816465add2245"},
+    {"name": "Laravel", "version": "12.70.2", "interface": "FPM", "outcome": "Ordinary database/file session routes did not consume native progress session", "limitation": "Bounded tested routes, not universal immunity", "original_sha256": "dd01577363518cd3be45a7f63ca4166e2d7ed68baad5be66ca02aa491a502d7e"},
+    {"name": "CakePHP", "version": "Template 5.4.0; core 5.4.2", "interface": "FPM; Nginx", "outcome": "Conditional handler-switch effect under selected configuration", "limitation": "Default preset negative; not default-config exposure", "original_sha256": "06f169e42f871a1be778b3e2880f5db7b662b6613ed2794caea0fb54120bd5a9"},
+    {"name": "FrankenPHP", "version": "1.13.1; PHP 8.4 pair", "interface": "FrankenPHP", "outcome": "Startup restart and oracle-assisted later effect", "limitation": "HTTP-only chain unproven; server/runtime study rather than an application", "original_sha256": "272ac27da3718c8a037d629ca9e1750d23ddec6b81d026d196bb21fd42dd03d6"}
+  ]
+}

@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Cite this research edition and the original PHP advisories; this is independent analysis, not original CVE discovery."
+title: "PHP2Shell: Independent Research — Public Edition"
+type: software
+authors:
+  - family-names: Vosburgh
+    given-names: Charles
+date-released: 2026-11-03
+repository-code: "https://github.com/the-vibe-dev/php2shell-public"
+license:
+  - MIT
+  - CC-BY-4.0

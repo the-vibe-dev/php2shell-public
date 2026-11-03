@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<title id="title">PHP2Shell Research</title><desc id="desc">Independent PHP2Shell reproduction, patch validation, application testing, and evidence boundaries.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08111f"/><stop offset="1" stop-color="#111827"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#164e63" stroke-width="1" opacity=".28"/></pattern>
+</defs>
+<rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+<rect width="1200" height="420" rx="28" fill="url(#grid)"/>
+<path d="M70 320 C245 220 330 345 500 245 S825 190 1130 100" fill="none" stroke="#22d3ee" stroke-width="3" opacity=".35"/>
+<circle cx="1035" cy="90" r="74" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/><path d="M1002 89h66M1035 56v66" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" opacity=".9"/><circle cx="1035" cy="90" r="38" fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="7 8"/>
+<text x="68" y="90" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="54" font-weight="800">PHP2Shell Research</text>
+<text x="70" y="135" fill="#67e8f9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="600">Independent RCE reproduction • cross-request lifetime analysis • patch validation</text>
+<text x="70" y="188" fill="#cbd5e1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">Owned-lab research by Charles Vosburgh / the-vibe-dev</text>
+
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+<rect x="70" y="236" width="300" height="112" rx="18" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+<text x="92" y="271" fill="#67e8f9" font-size="16" font-weight="700">DISCLOSED CVEs STUDIED</text>
+<text x="92" y="320" fill="#f8fafc" font-size="42" font-weight="800">3</text><text x="132" y="319" fill="#cbd5e1" font-size="17">109618 • 109619 • 115560</text>
+
+<rect x="395" y="236" width="300" height="112" rx="18" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+<text x="417" y="271" fill="#fbbf24" font-size="16" font-weight="700">MECHANISM FAMILIES</text>
+<text x="417" y="320" fill="#f8fafc" font-size="42" font-weight="800">5</text><text x="457" y="319" fill="#cbd5e1" font-size="17">target effects in owned labs</text>
+
+<rect x="720" y="236" width="410" height="112" rx="18" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+<text x="742" y="271" fill="#c4b5fd" font-size="16" font-weight="700">VULNERABLE → CORE-FIXED PAIRS</text>
+<text x="742" y="307" fill="#f8fafc" font-size="18" font-weight="700">8.2.34 → 8.2.35   ·   8.3.35 → 8.3.36</text>
+<text x="742" y="335" fill="#f8fafc" font-size="18" font-weight="700">8.4.26 → 8.4.27   ·   8.5.11 → 8.5.12</text>
+</g>
+</svg>
