@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+private-evidence/
+lab-output/
+*.pcap
+*.pcapng
+*.core
+*.zip
+*.tar
+*.tar.gz
+*.tar.xz
+verification-output/
