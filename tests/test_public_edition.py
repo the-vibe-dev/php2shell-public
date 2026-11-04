@@ -1,4 +1,4 @@
-"""Local tests of public examples and publication data, never original exploits."""
+"""Tests for public models, derived publication data, and export boundary."""
 from __future__ import annotations
 
 import copy
@@ -10,9 +10,10 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "pocs"))
 sys.path.insert(0, str(ROOT / "scripts"))
+
 import offline_models as models
 from review_results import validate_results
-from validate_publication import audit_model_source, review_tree
+from validate_publication import audit_model_source, review_tree, validate_audit
 
 
 class ModelTests(unittest.TestCase):
@@ -130,6 +131,32 @@ class DataTests(unittest.TestCase):
             validate_results(self.data)
 
 
+class AuditTests(unittest.TestCase):
+    def setUp(self):
+        self.audit = json.loads((ROOT / "audit/audit_summary.json").read_text(encoding="utf-8"))
+
+    def test_audit_summary(self):
+        validate_audit(self.audit)
+
+    def test_audit_total_rejected(self):
+        broken = copy.deepcopy(self.audit)
+        broken["risk_buckets"]["high"] -= 1
+        with self.assertRaises(ValueError):
+            validate_audit(broken)
+
+    def test_private_copy_rejected(self):
+        broken = copy.deepcopy(self.audit)
+        broken["private_source_files_copied_to_public_tree"] = 1
+        with self.assertRaises(ValueError):
+            validate_audit(broken)
+
+    def test_bad_ledger_digest_rejected(self):
+        broken = copy.deepcopy(self.audit)
+        broken["private_audit_ledger_sha256"] = "bad"
+        with self.assertRaises(ValueError):
+            validate_audit(broken)
+
+
 class PublicationTests(unittest.TestCase):
     def test_current_model_imports(self):
         audit_model_source((ROOT / "pocs/offline_models.py").read_text(encoding="utf-8"))
@@ -146,10 +173,16 @@ class PublicationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             audit_model_source("open('example', 'w')\n")
 
+    def test_subprocess_rejected(self):
+        with self.assertRaises(ValueError):
+            audit_model_source("import subprocess\nsubprocess.run(['true'])\n")
+
     def test_complete_public_tree(self):
         result = review_tree()
         self.assertEqual(result["status"], "PASS")
         self.assertFalse(result["runtime_reproduced"])
+        self.assertEqual(result["private_poc_files_audited"], 350)
+        self.assertEqual(result["private_source_files_copied"], 0)
 
 
 if __name__ == "__main__":
