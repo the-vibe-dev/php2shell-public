@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "audit_completed": "2026-11-03",
+  "private_commit_reviewed": "ff7ef13d69748110a5329af5228aff2d5a7e4a98",
+  "private_poc_files_reviewed": 350,
+  "private_audit_ledger_sha256": "c3be3b6161fff210c048a8506998374cad8d073ecac9af001bdbae38669f8ab5",
+  "risk_buckets": {
+    "high": 193,
+    "medium": 80,
+    "low": 77
+  },
+  "dispositions": {
+    "EXCLUDE_OPERATIONAL_OR_DUAL_USE_SOURCE": 327,
+    "EXCLUDE_RAW_CONFIGURATION_OR_RECEIPT": 21,
+    "EXCLUDE_PRIVATE_RESEARCH_NOTE": 2
+  },
+  "private_source_files_copied_to_public_tree": 0,
+  "method": "Every file in the private pocs/ tree was enumerated, SHA-256 hashed, capability-scanned, risk-bucketed, and assigned a publication disposition. Representative high-risk families received manual review. Public examples were authored separately."
+}
