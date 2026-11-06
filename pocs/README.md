@@ -1,4 +1,4 @@
-# Public examples — deliberately non-operational
+# Public review tools: deliberately non-operational
 
 These are newly authored educational replacements, not the original exploit scripts with a target restriction. They contain no vulnerability-triggering request builder, serialized gadget, memory-corruption trigger, heap calibration, worker targeting, arbitrary command interface, or network client.
 

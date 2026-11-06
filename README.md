@@ -135,7 +135,7 @@ Some of the most useful conclusions came from things that **did not** work:
 
 Those boundaries are documented in [negative results](docs/negative-results.md).
 
-## About the public PoCs
+## About the public review tools
 
 The private research archive contains the original laboratory scripts and evidence used during the investigation.
 
@@ -149,7 +149,9 @@ The public repository instead contains:
 - version and application matrices;
 - the technical report and proof boundaries.
 
-The public examples do not build triggering HTTP requests, serialize executable objects, discover addresses, shape heaps, select workers, or execute the original exploit chains.
+The public review tools are non-operational educational models and diagnostics. They do not build triggering HTTP requests, serialize executable objects, discover addresses, shape heaps, select workers, or execute the original exploit chains.
+
+Running these tools does not rerun the laboratory code-execution results described above. The original scripts and evidence remain in the private research archive.
 
 That is a deliberate publication decision, not an attempt to hide the technical results.
 
@@ -219,7 +221,7 @@ See [RESEARCH_ACCESS.md](RESEARCH_ACCESS.md) for details.
 | Remediation | [docs/remediation.md](docs/remediation.md) |
 | Primary references | [docs/references.md](docs/references.md) |
 | Machine-readable result data | [data/](data/README.md) |
-| Public examples | [pocs/](pocs/README.md) |
+| Public review tools | [pocs/](pocs/README.md) |
 | Publication audit | [audit/AUDIT_SUMMARY.md](audit/AUDIT_SUMMARY.md) |
 
 ## Attribution

@@ -158,6 +158,15 @@ class AuditTests(unittest.TestCase):
 
 
 class PublicationTests(unittest.TestCase):
+    def test_public_tool_documentation_matches_its_scope(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        tools_readme = (ROOT / "pocs/README.md").read_text(encoding="utf-8")
+        self.assertIn("## About the public review tools", readme)
+        self.assertNotIn("public pocs", readme.lower())
+        self.assertIn("non-operational educational models", readme)
+        self.assertIn("does not rerun the laboratory code-execution results", readme)
+        self.assertTrue(tools_readme.startswith("# Public review tools:"))
+
     def test_current_model_imports(self):
         audit_model_source((ROOT / "pocs/offline_models.py").read_text(encoding="utf-8"))
 
