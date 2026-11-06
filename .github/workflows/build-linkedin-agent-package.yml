@@ -1,0 +1,37 @@
+name: Build LinkedIn agent package
+
+on:
+  push:
+    branches:
+      - linkedin-agent-package-20261105
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout package branch
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - name: Verify package contents
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f agent-package/README.md
+          test -f agent-package/AGENT_INSTRUCTIONS.md
+          test -f agent-package/series_manifest.json
+          for n in 01 02 03 04 05 06 07; do
+            test "$(find agent-package -maxdepth 1 -type f -name "$n-*.md" | wc -l)" -eq 1
+          done
+          find agent-package -maxdepth 1 -type f -print | sort
+      - name: Upload agent package
+        uses: actions/upload-artifact@v4
+        with:
+          name: PHP2Shell_LinkedIn_Agent_Package_20261105
+          path: agent-package/
+          if-no-files-found: error
+          retention-days: 30
