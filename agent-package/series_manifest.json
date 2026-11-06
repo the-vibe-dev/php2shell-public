@@ -1,0 +1,54 @@
+{
+  "series": "PHP2Shell LinkedIn Research Series",
+  "source_repository": "https://github.com/the-vibe-dev/php2shell-public",
+  "source_commit": "dc0e81f138835f79923e9770af1032f4357f513c",
+  "recommended_cadence": "every 1–2 days",
+  "posts": [
+    {
+      "order": 1,
+      "file": "01-launch-overview.md",
+      "topic": "launch / research overview"
+    },
+    {
+      "order": 2,
+      "file": "02-oom-proof.md",
+      "topic": "CVE-2026-109618 / OOM proof"
+    },
+    {
+      "order": 3,
+      "file": "03-worker-lifetime.md",
+      "topic": "CVE-2026-109619 / worker lifetime"
+    },
+    {
+      "order": 4,
+      "file": "04-session-serializer.md",
+      "topic": "CVE-2026-115560 / serializer mismatch"
+    },
+    {
+      "order": 5,
+      "file": "05-application-boundaries.md",
+      "topic": "application boundary testing"
+    },
+    {
+      "order": 6,
+      "file": "06-negative-results.md",
+      "topic": "negative results and controls"
+    },
+    {
+      "order": 7,
+      "file": "07-publication-methodology.md",
+      "topic": "publication and defanging methodology"
+    }
+  ],
+  "locked_facts": {
+    "target_effects": 26,
+    "negative_controls": 61,
+    "private_source_files_audited": 350,
+    "private_source_files_copied_publicly": 0,
+    "cves": [
+      "CVE-2026-109618",
+      "CVE-2026-109619",
+      "CVE-2026-115560"
+    ]
+  }
+}
